@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		381F2F6F2C0E4ECD001D3A64 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381F2F6E2C0E4ECD001D3A64 /* NetworkingManager.swift */; };
 		385EED6D2BF22CD500136032 /* CryptoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385EED6C2BF22CD500136032 /* CryptoAppApp.swift */; };
 		385EED6F2BF22CD500136032 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385EED6E2BF22CD500136032 /* ContentView.swift */; };
 		385EED712BF22CD700136032 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 385EED702BF22CD700136032 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		381F2F6E2C0E4ECD001D3A64 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		385EED692BF22CD500136032 /* CryptoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		385EED6C2BF22CD500136032 /* CryptoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAppApp.swift; sourceTree = "<group>"; };
 		385EED6E2BF22CD500136032 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,6 +54,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		381F2F6D2C0E4EB0001D3A64 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				381F2F6E2C0E4ECD001D3A64 /* NetworkingManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		385EED602BF22CD500136032 = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				385EED6C2BF22CD500136032 /* CryptoAppApp.swift */,
+				381F2F6D2C0E4EB0001D3A64 /* Utilities */,
 				38739A672C00035300E18B98 /* Services */,
 				38F65A412BF2DC83008E8BEA /* Models */,
 				385EED832BF2360800136032 /* Core */,
@@ -247,6 +258,7 @@
 				385EED6D2BF22CD500136032 /* CryptoAppApp.swift in Sources */,
 				385EED8C2BF2375D00136032 /* CircleButtonView.swift in Sources */,
 				385EED822BF231F400136032 /* Color.swift in Sources */,
+				381F2F6F2C0E4ECD001D3A64 /* NetworkingManager.swift in Sources */,
 				385EED8E2BF23BF600136032 /* CircleButtonAnimationView.swift in Sources */,
 				38A975DB2BF51F2A002FBCD7 /* PreviewProvider.swift in Sources */,
 				38A975DD2BF52CBB002FBCD7 /* Double.swift in Sources */,
