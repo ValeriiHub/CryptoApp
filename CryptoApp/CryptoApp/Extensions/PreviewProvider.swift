@@ -37,3 +37,7 @@ extension Coin {
                              priceChangePercentage24HInCurrency:  6.000839393180678,
                              currentHoldings: 1.5)
 }
+
+extension Statistic {
+    static var simple = Statistic(title: "Market Cap", value: "$12.5Bn", percentageChange: 25.34)
+}
