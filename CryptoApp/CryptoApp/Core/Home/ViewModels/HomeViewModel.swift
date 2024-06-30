@@ -22,7 +22,8 @@ final class HomeViewModel: ObservableObject {
     
     @Published var searchText = ""
     
-    private let dataService = CoinDataService()
+    private let coinDataService = CoinDataService()
+    private let marketDataService = MarketDataService()
     private var cancellables = Set<AnyCancellable>()
    
     init() {
@@ -30,12 +31,22 @@ final class HomeViewModel: ObservableObject {
     }
     
     func addSubscribers() {
+        
+        // update allCoins
         $searchText
-            .combineLatest(dataService.$allCoins)
+            .combineLatest(coinDataService.$allCoins)
             .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
             .map(filterCoins)
             .sink { [weak self] returnedCoins in
                 self?.allCoins = returnedCoins
+            }
+            .store(in: &cancellables)
+        
+        // update marketData
+        marketDataService.$marketData
+            .map (mapGlobalMarketData)
+            .sink { [weak self] returnedStats in
+                self?.statistics = returnedStats
             }
             .store(in: &cancellables)
     }
@@ -52,5 +63,19 @@ final class HomeViewModel: ObservableObject {
             coin.symbol.lowercased().contains(lowercasedText) ||
             coin.id.lowercased().contains(lowercasedText)
         }
+    }
+    
+    private func mapGlobalMarketData(marketDataModel: MarketData?) -> [Statistic] {
+        var stats: [Statistic] = []
+        
+        guard let data = marketDataModel else { return [] }
+        
+        let marketCap = Statistic(title: "Market Cap", value: data.marketCap, percentageChange: data.marketCapChangePercentage24HUsd)
+        let volume = Statistic(title: "24 Volume", value: data.volume)
+        let btcDominance = Statistic(title: "BTC Dominance", value: data.btcDominance)
+        let portfolio = Statistic(title: "Portfolio Value", value: "$0.00", percentageChange: 0)
+        
+        stats.append(contentsOf: [marketCap, volume, btcDominance, portfolio])
+        return stats
     }
 }
